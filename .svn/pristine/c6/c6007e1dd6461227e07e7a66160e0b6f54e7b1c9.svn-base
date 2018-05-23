@@ -1,0 +1,16 @@
+<template>
+    <div class="Second">
+        {{ msg }}
+        <router-link to="/Second/Second_one">打开Second_one页</router-link>
+    </div>
+</template>
+
+<script>
+    export default {
+        data () {
+            return {
+                msg: 'Second内容'
+            }
+        }
+    }
+</script>

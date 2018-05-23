@@ -1,0 +1,143 @@
+/**
+ * Created by apple on 17/2/18.
+ */
+//公共弹窗方法
+/*
+ 文字提示弹窗 通过更改true 和 false来显示
+ <transition name="show">
+ <div class="alert" v-show="alert">
+ <div class="alert_content"></div>
+ </div>
+ </transition>
+ 或者是
+ <div class="alert">
+ <div class="alert_content"></div>
+ </div>
+ */
+
+/* * * * * * * * * * *  获取滚动条的距离  * * * * * * * * * * * * */
+function ___getScroll() {
+    if (window.pageYOffset) {
+        scrollPos = window.pageYOffset;
+    }
+    else if (document.compatMode && document.compatMode != 'BackCompat') {
+        scrollPos = document.documentElement.scrollTop;
+    }
+    else if (document.body) {
+        scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+}
+/* * * * * * * * * * *  获取滚动条的距离 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  回到顶部  * * * * * * * * * * * * */
+function oFlash() {
+    var t = setInterval(function () {
+        var scrollTop = document.body.scrollTop;
+        var oFlash = Math.floor(scrollTop / 1.01);
+        document.body.scrollTop = oFlash;
+        if (scrollTop <= 0) {
+            clearInterval(t);
+        }
+    });
+}
+/* * * * * * * * * * *  回到顶部 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  禁止微信上拉  * * * * * * * * * * * * */
+function stopDrop() {
+    var lastY;//最后一次y坐标点
+    $(document.body).on('touchstart', function (event) {
+        lastY = event.originalEvent.changedTouches[0].clientY;//点击屏幕时记录最后一次Y度坐标。
+    });
+    $(document.body).on('touchmove', function (event) {
+        var y = event.originalEvent.changedTouches[0].clientY;
+        var st = $(this).scrollTop(); //滚动条高度
+        if (y >= lastY && st <= 10) {//如果滚动条高度小于0，可以理解为到顶了，且是下拉情况下，阻止touchmove事件。
+            lastY = y;
+            event.preventDefault();
+        }
+        lastY = y;
+    });
+}
+/* * * * * * * * * * *  禁止微信上拉 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  禁止分享关注  * * * * * * * * * * * * */
+function hideAllNonBaseMenuItem(data) {
+    var signpackage = data.signpackage;
+
+    if (signpackage == null) {
+        signpackage = data.signPackage;
+    }
+    //jssdk
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: signpackage.appId, // 必填，公众号的唯一标识
+        timestamp: signpackage.timestamp, // 必填，生成签名的时间戳
+        nonceStr: signpackage.nonceStr, // 必填，生成签名的随机串
+        signature: signpackage.signature,// 必填，签名，见附录1
+        jsApiList: [
+            'hideAllNonBaseMenuItem'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.hideAllNonBaseMenuItem();
+    });
+}
+/* * * * * * * * * * *  禁止分享关注 end  * * * * * * * * * * * * */
+
+var screenheight = document.documentElement.clientHeight / 100 / (document.documentElement.clientWidth / 375);
+
+// (function (doc, win) {
+//     var docEl = doc.documentElement;
+//     var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+//     var recalc = function () {
+//         var clientWidth = docEl.clientWidth;
+//         if (!clientWidth) return;
+//         docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+//     };
+//     if (!doc.addEventListener) return;
+//     win.addEventListener(resizeEvt, recalc, false);
+//     doc.addEventListener('DOMContentLoaded', recalc, false);
+// })(document, window)
+
+
+//请求
+
+class Axios {
+    constructor(api, param = {}, callback, type = 'post', kind = 1) {
+        this.url = 'http://www.bilyho.com/api/cms_api/web/' + api;
+        this.param = param;
+        this.callback = callback;
+        this.type = type;
+        if (kind === 1) {
+            this.ajax_1();
+        } else if (kind === 2) {
+            this.ajax_2();
+        }
+    }
+
+    //地址传参
+    ajax_1() {
+        axios({
+            method: this.type,
+            url: this.url,
+            params: this.param
+        }).then(this.callback).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    //地址不传参
+    ajax_2() {
+        let str = '';
+        for (let i in this.param) {
+            str += i + '=' + this.param[i] + '&'
+        }
+        axios.post(this.url, str)
+            .then(this.callback)
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+}
+

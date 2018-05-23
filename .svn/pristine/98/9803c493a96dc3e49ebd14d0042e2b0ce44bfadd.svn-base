@@ -1,0 +1,48 @@
+<?php
+namespace app\wx_api\controller;
+
+# 引用tp默认
+use think\Controller;
+# 引用公共类
+use Common;
+use think\Request;
+
+class Web extends Controller
+{
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+
+
+    }
+
+    public function index(){
+        //加载模版
+      return 'index';
+    }
+
+    public function getAccessToken(){
+        $common = new Common\Common();
+
+        $request = $common->getRequest('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx7cf9e5466edfa6ce&secret=143efc0a88848a86a37d8138e13f956c');
+
+        db('accesstoken')->where('id',1)->update(['accessToken' => $request['access_token'] , 'time' => time()]);
+
+    }
+    public function test(){
+        return 123;
+    }
+
+    public function pack($array = null, $code = '0', $msg = '请求成功', $alert = 'N')
+    {
+
+        if (!$array) {
+            return json(['err_code' => $code, 'msg' => $msg, 'alert' => $alert]);
+        } else {
+            $array["err_code"] = $code;
+            $array["msg"] = $msg;
+            $array["alert"] = $alert;
+            return json($array);
+        }
+    }
+}

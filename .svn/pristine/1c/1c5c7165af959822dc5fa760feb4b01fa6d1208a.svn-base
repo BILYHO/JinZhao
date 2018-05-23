@@ -1,0 +1,112 @@
+<?php
+namespace app\wx_api\controller;
+
+# 引用tp默认
+use think\Controller;
+# 引用公共类
+use Common;
+use think\Request;
+
+define("SECRET", "143efc0a88848a86a37d8138e13f956c");
+define("AppID", "wx7cf9e5466edfa6ce");
+define("HEAD", "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . AppID);
+define("TAIL", "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect");
+
+class Web extends Controller
+{
+
+    # 构造方法
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+
+    }
+
+    # 自定义菜单
+    public function customMenu()
+    {
+        # POST（请使用https协议）
+        $common = new Common\Common();
+        $accessToken = $this->getAccessToken();
+
+
+        $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" . $accessToken;
+        $params = ["button" =>
+            [
+                ["type" => "view", "name" => "首页", "url" => HEAD . "http://xuegengwang.com/jinzhao/page/index.html" . TAIL],
+                ["name" => "热门活动", "sub_button" => [
+                    ['type' => 'view', 'name' => '畅游高校', "url" => HEAD . "http://xuegengwang.com/jinzhao/page/tourism_index.html" . TAIL],
+//                    ['type' => 'click', 'name' => '今朝大讲堂', 'key' => 'forum'],
+//                    ['type' => 'view', 'name' => '宣传大使', "url" => JZURL_HEAD . "http://xuegengwang.com/jinzhao/page/promotion_guide.html" . JZURL_TAIL],
+                    ['type' => 'view', 'name' => '志愿填报', "url" => HEAD . "http://xuegengwang.com/jinzhao/page/voluntary_read.html" . TAIL],
+//                    ['type' => 'click', 'name' => '招考咨询群', 'key' => 'consultation_qq'],
+//                    ['type' => 'view', 'name' => '测评登录入口', "url" =>  "http://www.sizhi.in/?m=testcard&c=account&f=login"],
+//                    ['type' => 'click', 'name' => '2017高考成绩查询', "key" =>  "score"],
+                    ['type' => 'view', 'name' => '2017高考录取查询', "url" => "http://page-resoures.5184.com/cjquery/w/gklq/query.html?20170700gk_lq"],
+                ]
+                ],
+                ["name" => "高考互助", "sub_button" => [
+//                    ['type' => 'click', 'name' => '学习资料', 'key' => 'review'],
+//                    ["type" => "view", "name" => "线上咨询", "url" => "http://xuegengwang.com/jinzhao/page/to_reading.html"],
+//                    ["type" => "click", "name" => "考生QQ群", "key" => "QQ"],
+                    ["type" => "click", "name" => "家长交流群", "key" => "qqParents"],
+                    ["type" => "click", "name" => "考生交流群", "key" => "qqStudent"],
+                ]
+                ]
+//                "type":"click",
+//          "name":"今日歌曲",
+//          "key":"V1001_TODAY_MUSIC"
+            ]
+        ];
+        # 把参数转为json
+        $jsonstring = json_encode($params, JSON_UNESCAPED_UNICODE);
+        $request = $common->postRequest($url, $jsonstring);
+
+        return $request;
+    }
+
+    # 获取accessToken
+    public function getAccessToken()
+    {
+        $common = new Common\Common();
+
+        $now = time();
+
+        # 对比数据库的token时间
+        $lastTime = db('accesstoken')->where('id', 1)->value('time');
+
+        if ($now > $lastTime + 7200000) {
+
+            $request = $common->getRequest('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . AppID . '&secret=' . SECRET);
+
+            db('accesstoken')->where('id', 1)->update(['accessToken' => $request['access_token'], 'time' => time()]);
+
+            $access_token = $request['access_token'];
+
+            return $access_token;
+
+
+        } else {
+
+            $access_token = db('accesstoken')->where('id', 1)->value('accessToken');
+
+            return $access_token;
+
+        }
+
+    }
+
+    # return json
+    public function pack($array = null, $code = '0', $msg = '请求成功', $alert = 'N')
+    {
+
+        if (!$array) {
+            return json(['err_code' => $code, 'msg' => $msg, 'alert' => $alert]);
+        } else {
+            $array["err_code"] = $code;
+            $array["msg"] = $msg;
+            $array["alert"] = $alert;
+            return json($array);
+        }
+    }
+}

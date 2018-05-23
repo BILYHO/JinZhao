@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/address.js"></script>
+
+</head>
+<body>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label"><i>*</i>所在地址</label>
+    <div class="col-sm-3">
+        <select name="input_province" id="input_province" class="form-control">
+            <option>--请选择--</option>
+        </select>
+    </div>
+    <div class="col-sm-3">
+        <select name="input_city" id="input_city" class="form-control">
+            <option>--请选择--</option>
+        </select>
+    </div>
+    <div class="col-sm-3">
+        <select name="input_area" id="input_area" class="form-control">
+            <option>--请选择--</option>
+        </select>
+    </div>
+</div>
+<script>
+
+
+    $(function () {
+        $.each(pdata, function (idx, item) {
+            if (parseInt(item.level) == 0) {
+                $("#input_province").append($('<option class=' + item.code + ' > ' + item.names + ' </option>'));
+            }
+        });
+
+        $("#input_province").on('change', function () {
+
+            if ($(this).val() == "") return;
+
+            let input_city = $("#input_city");
+
+            input_city.find("option").remove();
+
+            input_city.append($('<option> --请选择-- </option>'));
+
+            let code = $(this).find("option:selected").attr('class');
+
+            $.each(pdata, function (idx, item) {
+                if (parseInt(item.level) == 1 && code.substring(0, 2) == item.code.substring(0, 2)) {
+                    input_city.append($('<option class='+ item.code +'> ' + item.names + '</option>'));
+                }
+            });
+        });
+
+        $("#input_city").on('change', function () {
+
+            if ($(this).val() == "") return;
+
+            let input_area = $("#input_area");
+
+            input_area.find('option').remove();
+
+            let code = $(this).find("option:selected").attr("class");
+
+            input_area.append($('<option> --请选择-- </option>'));
+
+            $.each(pdata, function (idx, item) {
+                if (parseInt(item.level) == 2 && code.substring(0, 4) == item.code.substring(0, 4)) {
+                    input_area.append($('<option class=' + item.code + ' > ' + item.names + ' </option>'));
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

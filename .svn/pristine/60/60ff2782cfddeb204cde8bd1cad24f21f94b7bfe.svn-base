@@ -1,0 +1,34 @@
+<template>
+  <div class="login">
+
+    <div class="login_box">
+      <dl>
+        <dt>系 统 登 录</dt>
+        <dd>用户名</dd>
+        <dd>密码</dd>
+      </dl>
+    </div>
+
+  </div>
+</template>
+
+
+<script>
+
+
+  export default {
+    beforeCreate: function () {
+
+    },
+    mounted: function () {
+      const loginBox = document.querySelector('.login_box');
+      TweenMax.from(loginBox, 3, {transform:"translateY(-700px)", repeat:0, yoyo:true ,ease: Elastic.easeInOut,onComplete:function () {
+      }});
+    },
+    data() {
+      return {}
+    }
+  }
+</script>
+
+<style lang="scss" src="../../scss/login.scss"></style>

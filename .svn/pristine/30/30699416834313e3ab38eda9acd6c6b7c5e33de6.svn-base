@@ -1,0 +1,352 @@
+@charset "utf-8";
+
+@import "reset";
+
+//解决vue加载时闪现的乱码
+[v-cloak] {
+  display: none;
+}
+
+html, body {
+  margin: 0px;
+  height: auto;
+}
+
+//公共样式
+.all {
+  width: 3.75rem;
+  font-size: .17rem;
+  overflow: hidden;
+  //监听返回事件时弹出的样式
+  .go_back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .8);
+    .go_back_content {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.85rem;
+      padding: .37rem .25rem;
+      box-sizing: border-box;
+      border-radius: .1rem;
+      background: #ffffff;
+      color: #000000;
+      font-size: .16rem;
+      text-align: center;
+      p {
+        text-align: center;
+      }
+      span {
+        display: inline-block;
+        width: 40%;
+        height: .35rem;
+        line-height: .35rem;
+        border-radius: .2rem;
+        background: #f3a76f;
+        text-align: center;
+        font-size: .17rem;
+        color: #FFFFFF;
+      }
+      span:last-child {
+        margin-left: .1rem;
+      }
+      .go_back_icon {
+        display: block;
+        margin: .25rem auto;
+      }
+    }
+  }
+  //监听返回事件时弹出的样式 end
+}
+
+
+//tabbat
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 3.75rem;
+  height: .5rem;
+  background: #FFFFFF;
+  margin: auto;
+  overflow: hidden;
+  border-top: .01rem #d3d3d3 solid;
+  .tabbar_volunteer {
+    width: 3.75rem;
+    height: .5rem;
+    background: #FFFFFF;
+    margin: auto;
+    overflow: hidden;
+    border-top: .01rem #d3d3d3 solid;
+  }
+}
+
+//下拉加载样式
+.load {
+  height: .5rem;
+  line-height: .5rem;
+  text-align: center;
+  .loading {
+    display: inline-block;
+    height: .1rem;
+    width: .1rem;
+    border-radius: 50%;
+    margin: 6px;
+    border: 2px solid #666;
+    border-bottom-color: transparent;
+    vertical-align: middle;
+    -webkit-animation: rotate 0.75s linear infinite;
+    animation: rotate 0.75s linear infinite;
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+//下拉样式end
+
+//tabbar样式
+.tabbar {
+  z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  > div {
+    width: .9375rem;
+    height: .49rem;
+    float: left;
+    text-align: center;
+    font-size: .12rem;
+    color: rgb(102, 102, 102);
+    i {
+      display: block;
+      width: .225rem;
+      height: .225rem;
+      margin: .075rem auto 0;
+    }
+    .index_icon {
+      background: url("http://xuegengwang.com/jinzhao/image/tabbar/首页-未点击.png") no-repeat;
+      background-size: 100%;
+    }
+    .college_icon {
+      background: url("http://xuegengwang.com/jinzhao/image/tabbar/高校-未点击.png") no-repeat;
+      background-size: 100%;
+    }
+    .consult_icon {
+      background: url("http://xuegengwang.com/jinzhao/image/tabbar/咨询-未点击.png") no-repeat;
+      background-size: 100%;
+    }
+    .me_icon {
+      background: url("http://xuegengwang.com/jinzhao/image/tabbar/我-未点击.png") no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+
+.loading_box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 1rem;
+  line-height: 1rem;
+  background: rgba(0, 0, 0, .7);
+  text-align: center;
+  color: #ffffff;
+  border-radius: .1rem;
+  font-size: .14rem;
+}
+
+.loading_box img {
+  width: 10%;
+  margin-right: .05rem;
+  animation: rotate 1s linear infinite;
+  vertical-align: middle;
+  animation-direction: reverse;
+}
+
+.alert {
+  z-index: 99999;
+  padding:  .1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: .05rem;
+  background-color: rgba(33, 33, 33, .8);
+  .alert_content {
+    color: #FFFFFF;
+    font-size: .11rem;
+    text-align: center;
+  }
+}
+
+//公用的弹窗
+.alat {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .2);
+  text-align: center;
+  .message {
+    width: 2.75rem;
+    border-radius: 20px;
+    background: #FFFFFF;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    p:first-of-type {
+      height: .3rem;
+      line-height: .3rem;
+      padding-top: .1rem;
+      color: #666666;
+      font-size: .17rem;
+    }
+    p:last-of-type {
+      height: .4rem;
+      line-height: .4rem;
+      padding: .1rem 0;
+      color: #999999;
+      font-size: .15rem;
+    }
+    span {
+      display: block;
+      height: .4rem;
+      line-height: .4rem;
+      border-top: 1px solid #d3d3d3;
+      font-size: .18rem;
+      color: #7dcde7;
+    }
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+//列表动画
+.fade-enter-active {
+  transform-origin: top right;
+  transition: opacity .5s;
+  animation: list .5s ease-in;
+}
+
+.fade-leave-active {
+  transform-origin: top right;
+  transition: opacity .5s;
+  animation: list_end .5s ease-out;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+@keyframes list {
+  0% {
+    transform: scale(0);
+  }
+}
+
+@keyframes list_end {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+//隐藏动画 for vue
+.show-enter-active, .show-leave-active {
+  transition: opacity .5s
+}
+
+.show-enter, .show-leave-active {
+  opacity: 0
+}
+
+//JQ动画
+@keyframes FadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes FadeOut {
+  0%{
+    opacity: .8;
+  }
+  50%{
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes Toast {
+  0% {
+    opacity: 0;
+  }
+  25%{
+    opacity: .5;
+  }
+  50%{
+    opacity: 1;
+  }
+  80%{
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
+}

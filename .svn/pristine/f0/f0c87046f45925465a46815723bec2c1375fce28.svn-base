@@ -1,0 +1,332 @@
+/**
+ * Created by apple on 17/2/18.
+ */
+//公共弹窗方法
+/*
+ 文字提示弹窗 通过更改true 和 false来显示
+ <transition name="show">
+ <div class="alert" v-show="alert">
+ <div class="alert_content"></div>
+ </div>
+ </transition>
+ 或者是
+ <div class="alert">
+ <div class="alert_content"></div>
+ </div>
+ */
+
+/* * * * * * * * * * *  获取滚动条的距离  * * * * * * * * * * * * */
+function ___getScroll() {
+    if (window.pageYOffset) {
+        scrollPos = window.pageYOffset;
+    }
+    else if (document.compatMode && document.compatMode != 'BackCompat') {
+        scrollPos = document.documentElement.scrollTop;
+    }
+    else if (document.body) {
+        scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+}
+/* * * * * * * * * * *  获取滚动条的距离 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  回到顶部  * * * * * * * * * * * * */
+function oFlash() {
+    var t = setInterval(function () {
+        var scrollTop = document.body.scrollTop;
+        var oFlash = Math.floor(scrollTop / 1.01);
+        document.body.scrollTop = oFlash;
+        if (scrollTop <= 0) {
+            clearInterval(t);
+        }
+    });
+}
+/* * * * * * * * * * *  回到顶部 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  禁止微信上拉  * * * * * * * * * * * * */
+function stopDrop() {
+    var lastY;//最后一次y坐标点
+    $(document.body).on('touchstart', function (event) {
+        lastY = event.originalEvent.changedTouches[0].clientY;//点击屏幕时记录最后一次Y度坐标。
+    });
+    $(document.body).on('touchmove', function (event) {
+        var y = event.originalEvent.changedTouches[0].clientY;
+        var st = $(this).scrollTop(); //滚动条高度
+        if (y >= lastY && st <= 10) {//如果滚动条高度小于0，可以理解为到顶了，且是下拉情况下，阻止touchmove事件。
+            lastY = y;
+            event.preventDefault();
+        }
+        lastY = y;
+    });
+}
+/* * * * * * * * * * *  禁止微信上拉 end  * * * * * * * * * * * * */
+
+/* * * * * * * * * * *  禁止分享关注  * * * * * * * * * * * * */
+function hideAllNonBaseMenuItem(data) {
+    var signpackage = data.signpackage;
+
+    if (signpackage == null) {
+        signpackage = data.signPackage;
+    }
+    //jssdk
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: signpackage.appId, // 必填，公众号的唯一标识
+        timestamp: signpackage.timestamp, // 必填，生成签名的时间戳
+        nonceStr: signpackage.nonceStr, // 必填，生成签名的随机串
+        signature: signpackage.signature,// 必填，签名，见附录1
+        jsApiList: [
+            'hideAllNonBaseMenuItem'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.hideAllNonBaseMenuItem();
+    });
+}
+/* * * * * * * * * * *  禁止分享关注 end  * * * * * * * * * * * * */
+
+var screenheight = document.documentElement.clientHeight / 100 / (document.documentElement.clientWidth / 375);
+
+// (function (doc, win) {
+//     var docEl = doc.documentElement;
+//     var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+//     var recalc = function () {
+//         var clientWidth = docEl.clientWidth;
+//         if (!clientWidth) return;
+//         docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+//     };
+//     if (!doc.addEventListener) return;
+//     win.addEventListener(resizeEvt, recalc, false);
+//     doc.addEventListener('DOMContentLoaded', recalc, false);
+// })(document, window)
+
+
+//请求
+
+class Axios {
+    constructor(api, param = {}, callback, type = 'post', kind = 1) {
+        this.url = 'https://www.bilyho.com/api/cms_api/web/' + api;
+        this.param = param;
+        this.callback = callback;
+        this.type = type;
+
+        if (kind === 1) {
+            this.ajax_1();
+        } else if (kind === 2) {
+            this.ajax_2();
+        } else if (kind === 3) {
+            this.ajax_js();
+        } else if (kind === 4) {
+            this.ajax_jq();
+        }
+    }
+
+    //地址传参
+    ajax_1() {
+        axios({
+            method: this.type,
+            url: this.url,
+            params: this.param
+        }).then(this.callback).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    //地址不传参
+    ajax_2() {
+        let str = '';
+        for (let i in this.param) {
+            str += i + '=' + this.param[i] + '&'
+        }
+        str = str.substr(0, str.length - 1);
+        axios.post(this.url, str)
+            .then(this.callback)
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    //原生ajax jsonp
+    ajax_js() {
+        ajax({
+
+            url: this.url,    // 请求地址
+
+            jsonp: 'jsonpCallback',  // 采用jsonp请求，且回调函数名为"jsonpCallbak"，可以设置为合法的字符串 请求类型，默认"GET"，还可以是"POST"
+
+            data: this.param,   // 传输数据json
+
+            success: function (res) {   // 请求成功的回调函数
+
+                console.log(res);
+
+            },
+
+            error: function (error) {
+                console.log(error);
+
+            }   // 请求失败的回调函数
+
+        });
+    }
+
+    //JQajax jsonp
+    ajax_jq() {
+        $.ajax({
+            type: this.type,    //请求方式
+            async: true,    //是否异步
+            url: this.url,
+            dataType: "jsonp",    //跨域json请求一定是jsonp
+            jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+            //jsonpCallback:"successCallback",    //自定义跨域参数值，回调函数名也是一样，默认为jQuery自动生成的字符串
+            data: this.param,    //请求参数
+
+            beforeSend: function () {
+                //请求前的处理
+            },
+
+            success: function (data) {
+                //请求成功处理，和本地回调完全一样
+                console.log(data);
+            },
+
+            complete: function () {
+                //请求完成的处理
+            },
+
+            error: function () {
+                //请求出错处理
+            }
+        });
+    }
+}
+
+//原生ajax
+function ajax(params) {
+    params = params || {};
+    params.data = params.data || {};
+    var json = params.jsonp ? jsonp(params) : json(params);
+    // ajax请求
+    function json(params) {
+        params.type = (params.type || 'GET').toUpperCase();
+        params.data = formatParams(params.data);
+        var xhr = null;
+
+        // 实例化XMLHttpRequest对象
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            // IE6及其以下版本
+            xhr = new ActiveXObjcet('Microsoft.XMLHTTP');
+        }
+        ;
+
+        // 监听事件
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var status = xhr.status;
+                if (status >= 200 && status < 300) {
+                    var response = '';
+                    var type = xhr.getResponseHeader('Content-type');
+                    if (type.indexOf('xml') !== -1 && xhr.responseXML) {
+                        response = xhr.responseXML; //Document对象响应
+                    } else if (type === 'application/json') {
+                        response = JSON.parse(xhr.responseText); //JSON响应
+                    } else {
+                        response = xhr.responseText; //字符串响应
+                    }
+                    ;
+                    params.success && params.success(response);
+                } else {
+                    params.error && params.error(status);
+                }
+            }
+        };
+
+        // 连接和传输数据
+        if (params.type == 'GET') {
+            xhr.open(params.type, params.url + '?' + params.data, true);
+            xhr.send(null);
+        } else {
+            xhr.open(params.type, params.url, true);
+            //设置提交时的内容类型
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send(params.data);
+        }
+    }
+
+    // jsonp请求
+    function jsonp(params) {
+        //创建script标签并加入到页面中
+        var callbackName = params.jsonp;
+        var head = document.getElementsByTagName('head')[0];
+        // 设置传递给后台的回调参数名
+        params.data['callback'] = callbackName;
+        var data = formatParams(params.data);
+        var script = document.createElement('script');
+        head.appendChild(script);
+
+        //创建jsonp回调函数
+        window[callbackName] = function (json) {
+            head.removeChild(script);
+            clearTimeout(script.timer);
+            window[callbackName] = null;
+            params.success && params.success(json);
+        };
+
+        //发送请求
+        script.src = params.url + '?' + data;
+
+        //超时处理
+        if (params.time) {
+            script.timer = setTimeout(function () {
+                window[callbackName] = null;
+                head.removeChild(script);
+                params.error && params.error({
+                    message: '超时'
+                });
+            }, time);
+        }
+    };
+    //格式化参数
+    function formatParams(data) {
+        var arr = [];
+        for (var name in data) {
+            arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+        }
+        // 添加一个随机数，防止缓存
+        arr.push('v=' + random());
+        return arr.join('&');
+    }
+
+    // 获取随机数
+    function random() {
+        return Math.floor(Math.random() * 10000 + 500);
+    }
+}
+
+//去除空格
+function empty(str) {
+    return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+function getCode() {
+    // 验证码组成库
+    let code = '',
+        arrays = [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+        'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+        'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+        'U', 'V', 'W', 'X', 'Y', 'Z'
+    ];
+    // 随机从数组中获取四个元素组成验证码
+    for (let i = 0; i < 5; i++) {
+        // 随机获取一个数组的下标
+        let r = parseInt(Math.random() * arrays.length);
+        code += arrays[r];
+    }
+    return code;
+}

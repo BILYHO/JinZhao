@@ -1,0 +1,131 @@
+<template>
+    <div class="login">
+        <div class="login_box" v-if="login_box">
+            <dl>
+                <dt>系 统 登 录</dt>
+                <dd>
+                    <span>用户名 :</span>
+                    <div>
+                        <input type="text" id="name" AUTOCOMPLETE="off" placeholder="请输入用户名" maxlength="15">
+                    </div>
+                </dd>
+                <dd>
+                    <span>&nbsp;&nbsp;&nbsp;密码 :</span>
+                    <div>
+                        <input type="password" id="password" AUTOCOMPLETE="off" placeholder="请输入密码" maxlength="35">
+                    </div>
+                </dd>
+                <dd>
+                    <span>验证码 :</span>
+                    <div class="getcode">
+                        <input type="text" id="code" AUTOCOMPLETE="off" placeholder="请输入验证码"
+                               @click.stop.prevent="show_pic" maxlength="5">
+                    </div>
+                    <transition name="show">
+                        <span class="code_pic" v-show="code_pic_btn" @click.stop.prevent="changeCode">{{ code }}</span>
+                    </transition>
+                </dd>
+            </dl>
+
+            <router-link to="/Second">
+                <div class="btn" @click="confirm">确认</div>
+            </router-link>
+            <span class="forget">忘记密码 ?</span>
+
+            <!--弹窗提示-->
+            <transition name="show" v-on:after-enter="afterEnter">
+                <div class="alert" v-show="show">{{ alert }}</div>
+            </transition>
+        </div>
+        <router-view></router-view>
+    </div>
+
+</template>
+
+
+<script>
+    export default {
+        beforeCreate: function () {
+
+        },
+        mounted: function () {
+            const loginBox = document.querySelector('.login_box');
+            TweenMax.from(loginBox, 2, {
+                transform: "translateY(-7000px)",
+                repeat: 0,
+                yoyo: true,
+                ease: Elastic.easeInOut,
+                onComplete: function () {
+                }
+            });
+
+        },
+        data() {
+            return {
+                code_pic_btn: false,
+                code: getCode(),
+                show: false,
+                alert: '',
+                login_box: true
+            }
+        },
+        methods: {
+            confirm: function () {
+                this.login_box = false;
+                let code = document.querySelector('#code'),
+                    name = document.querySelector('#name'),
+                    password = document.querySelector('#password'),
+                    param = {
+                        'name': md5(empty(name.value)),
+                        'password': md5(empty(password.value))
+                    };
+                switch (true) {
+                    case param.name === '':
+                        this.show = true;
+                        this.alert = '请输入姓名';
+                        break;
+
+                    case param.password === '':
+                        this.show = true;
+                        this.alert = '请输入密码';
+                        break;
+
+                    case empty(code.value) === '':
+                        this.show = true;
+                        this.alert = '请输入验证码';
+                        break;
+
+                    case empty(code.value) !== this.code:
+
+                        this.show = true;
+                        this.alert = '请输入正确验证码';
+                        break;
+
+                    default:
+                        new Axios('test', param, function (response) {
+                            console.log(response.data);
+
+                            if (response.data.err_code === 0) {
+                                sessionStorage.admin = response.data.admin;
+                            }
+
+                        }, 'post', 2);
+                }
+
+
+            },
+            show_pic: function () {
+                this.code_pic_btn = true;
+            },
+            changeCode: function () {
+                this.code = getCode();
+            },
+            afterEnter: function () {
+                this.show = false;
+            }
+        },
+        watch: {}
+    }
+</script>
+
+<style lang="scss" src="../../scss/login.scss"></style>

@@ -1,0 +1,76 @@
+/**
+ * Created by apple on 17/9/4.
+ */
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter);
+
+
+//定义三个模板
+const home = {template: `<div><button>1</button></div>`};
+const first = {template: `
+    <div> first内容</div>
+`};
+const addf = {template: `
+    <div> 
+        <h2>组件</h2>
+        <router-view></router-view>
+    </div>
+`};
+//first组件下的两个人子组件
+const firstFirst = {template: `
+    <div> 
+       第一个小组件
+    </div>
+`};
+const firstSecond = {template: `
+    <div> 
+      第二个小组件
+    </div>
+`};
+
+const second = {template: `<div>second的内容</div>`};
+
+//死记硬背 这是路由的模板
+const router = new VueRouter({
+  mode: 'history',
+  base: __dirname,   //这里引用的就是路由模板 *********** 当前的本地路径
+  routes:[
+    //开始主路由
+    {path:'/',component:home},
+    {path:'/first',component:addf,
+      children:[
+        {path:'/',component:first},
+        {path:'first',component:firstFirst},
+        {path:'second',component:firstSecond},
+      ]
+    },
+    {path:'/second',component:second},
+  ]
+});
+
+const nav = {
+  template: ``
+};
+
+new Vue({
+  router, //这里引用的就是路由模板 ***********
+  template: `
+       <div id="f">
+            <h1>导航</h1>
+            <ol>
+               <li><router-link to="/">/</router-link></li>
+               <li><router-link to="/first">first</router-link></li>
+                    <ol>
+                        <li><router-link to="/first/first">firstFirst</router-link></li>
+                        <li><router-link to="/first/second">firstSecond</router-link></li>
+                    </ol>
+               <li><router-link to="/second">second</router-link></li>
+            </ol>
+            <router-view class="asd"></router-view>
+       </div>
+    `
+}).$mount('#app');
+
+

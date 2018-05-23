@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="66b7c497-6ca4-401d-8b2c-7b0b04ff4c47" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>index</find>
+      <find>url_convert</find>
+      <find>ACTION_SUFFIX</find>
+      <find>TMPL_ENGINE_TYPE</find>
+      <find>action_suffix</find>
+      <find>public</find>
+      <find>myform</find>
+      <find>zxcms_menu</find>
+      <find>think_menu</find>
+      <find>public.static</find>
+      <find>Welcome</find>
+      <find>zxcms_config</find>
+      <find>zxcms_admin_log</find>
+      <find>zxcms_admin</find>
+      <find>com</find>
+      <find>empty</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>think_menu</replace>
+      <replace>think_config</replace>
+      <replace>think_admin_log</replace>
+      <replace>think_admin</replace>
+      <replace>static</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/api/application/database.php" />
+        <option value="$PROJECT_DIR$/wx/wx_callback/send_templet.php" />
+        <option value="$PROJECT_DIR$/api/application/wx/controller/Index.php" />
+        <option value="$PROJECT_DIR$/api/application/index/controller/Index.php" />
+        <option value="$PROJECT_DIR$/api/application/route.php" />
+        <option value="$PROJECT_DIR$/api/index.php" />
+        <option value="$PROJECT_DIR$/api/application/wx_api/controller/Index.php" />
+        <option value="$PROJECT_DIR$/api/public/index.php" />
+        <option value="$PROJECT_DIR$/api/application/wx_api/controller/WebeController.php" />
+        <option value="$PROJECT_DIR$/api/application/wx_api/controller/WebController2.php" />
+        <option value="$PROJECT_DIR$/api/application/wx_api/controller/WebController.php" />
+        <option value="$PROJECT_DIR$/api/application/common.php" />
+        <option value="$PROJECT_DIR$/api/application/wx_api/controller/Web.php" />
+        <option value="$PROJECT_DIR$/123.html" />
+        <option value="$PROJECT_DIR$/cms/application/route.php" />
+        <option value="$PROJECT_DIR$/cms/public/.htaccess" />
+        <option value="$PROJECT_DIR$/cms/application/test/controller/Index.php" />
+        <option value="$PROJECT_DIR$/cms_vue/src/index.html" />
+        <option value="$PROJECT_DIR$/cms/application/index/controller/Index.php" />
+        <option value="$PROJECT_DIR$/cms/application/index/controller/IndexController.php" />
+        <option value="$PROJECT_DIR$/cms/index.php" />
+        <option value="$PROJECT_DIR$/cms/application/config.php" />
+        <option value="$PROJECT_DIR$/cms/application/database.php" />
+        <option value="$PROJECT_DIR$/cms/application/admin/view/login/login.html" />
+        <option value="$PROJECT_DIR$/cms/application/admin/controller/LoginController.php" />
+        <option value="$PROJECT_DIR$/cms/application/admin/view/index/index.html" />
+        <option value="$PROJECT_DIR$/cms/sql/tp5admin_2017-05-17.sql" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/wx/appid" />
+        <option value="$PROJECT_DIR$/cms/1.html" />
+        <option value="$PROJECT_DIR$/cms/123.html" />
+        <option value="$PROJECT_DIR$/cms/index2.html" />
+        <option value="$PROJECT_DIR$/cms/不能删.html" />
+        <option value="$PROJECT_DIR$/cms/static/js/common.js" />
+        <option value="$PROJECT_DIR$/api/application/config.php" />
+        <option value="$PROJECT_DIR$/cms_build/dist/static/js/common/common.js" />
+        <option value="$PROJECT_DIR$/cms/static/js/common/common.js" />
+        <option value="$PROJECT_DIR$/cms_build/index.html" />
+        <option value="$PROJECT_DIR$/cms_build/scss/login.scss" />
+        <option value="$PROJECT_DIR$/cms_build/static/js/common/common.js" />
+        <option value="$PROJECT_DIR$/api/application/cms_api/controller/Web.php" />
+        <option value="$PROJECT_DIR$/cms_build/src/components/Second.vue" />
+        <option value="$PROJECT_DIR$/cms_build/src/router/index.js" />
+        <option value="$PROJECT_DIR$/cms_build/src/components/Home.vue" />
+        <option value="$PROJECT_DIR$/cms_build/src/main.js" />
+        <option value="$PROJECT_DIR$/cms_build/src/components/login.vue" />
+        <option value="$PROJECT_DIR$/cms/index.html" />
+        <option value="/private/var/folders/j1/8v56tk793xsgtzv08hy1l23r0000gn/T/fz3temp-2/passwd" />
+        <option value="/private/var/folders/j1/8v56tk793xsgtzv08hy1l23r0000gn/T/fz3temp-2/post-commit" />
+        <option value="$PROJECT_DIR$/api/svn" />
+        <option value="$PROJECT_DIR$/wx/wx_callback/callback.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wx_callback" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="public.static&#9;null&#9;null" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cms" />
+      <recent name="$PROJECT_DIR$/admin" />
+      <recent name="$PROJECT_DIR$/cms_build/static/js/common" />
+      <recent name="$PROJECT_DIR$/api/application/cms_api" />
+      <recent name="$PROJECT_DIR$/cms_build" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin" />
+      <recent name="$PROJECT_DIR$/cms_build/src" />
+      <recent name="$PROJECT_DIR$/cms_build/static/js/common" />
+      <recent name="$PROJECT_DIR$/cms" />
+      <recent name="$PROJECT_DIR$/cms_vue" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66b7c497-6ca4-401d-8b2c-7b0b04ff4c47" name="Default" comment="" />
+      <created>1502540589425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1502540589425</updated>
+      <workItem from="1502540590855" duration="4988000" />
+      <workItem from="1502547886896" duration="2571000" />
+      <workItem from="1502550473403" duration="6249000" />
+      <workItem from="1502589770046" duration="26082000" />
+      <workItem from="1502642436557" duration="27000" />
+      <workItem from="1502642768687" duration="88000" />
+      <workItem from="1502642867285" duration="703000" />
+      <workItem from="1503117897589" duration="68000" />
+      <workItem from="1503745404853" duration="641000" />
+      <workItem from="1504353673247" duration="23772000" />
+      <workItem from="1504534818021" duration="4713000" />
+      <workItem from="1504542092671" duration="596000" />
+      <workItem from="1504619757461" duration="105000" />
+      <workItem from="1504619899223" duration="10000" />
+      <workItem from="1504928196924" duration="662000" />
+      <workItem from="1504930356974" duration="9000" />
+      <workItem from="1504955888030" duration="3339000" />
+      <workItem from="1504970957895" duration="5000" />
+      <workItem from="1504975082916" duration="6540000" />
+      <workItem from="1505029692080" duration="1200000" />
+      <workItem from="1505033289255" duration="20000" />
+      <workItem from="1505047354837" duration="69000" />
+      <workItem from="1505047979942" duration="117000" />
+      <workItem from="1508341815314" duration="3788000" />
+      <workItem from="1508421020831" duration="8655000" />
+      <workItem from="1508857682315" duration="5768000" />
+      <workItem from="1509024117887" duration="10661000" />
+      <workItem from="1509165728171" duration="905000" />
+      <workItem from="1509166705907" duration="9566000" />
+      <workItem from="1509187666015" duration="794000" />
+      <workItem from="1509192517289" duration="2188000" />
+      <workItem from="1509207312911" duration="611000" />
+      <workItem from="1509256904090" duration="114000" />
+      <workItem from="1510759400852" duration="3000" />
+      <workItem from="1510759409847" duration="1200000" />
+      <workItem from="1527047692255" duration="831000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="127658000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22257721" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cms_build/package-lock.json" />
+    <entry file="file://$PROJECT_DIR$/cms/static/js/common.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/static/js/common/vue.min.js" />
+    <entry file="file://$PROJECT_DIR$/api/application/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/application/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms_build/node_modules/qs/lib/index.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/static/js/common/require.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/config/dev.env.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/config/index.js" />
+    <entry file="file://$PROJECT_DIR$/api/thinkphp/library/think/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_superglobals.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php" />
+    <entry file="file://$PROJECT_DIR$/cms_build/dist/static/js/common/common.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/static/js/common/md5.js" />
+    <entry file="file://$PROJECT_DIR$/cms/static/js/common/md5.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/package.json" />
+    <entry file="file://$PROJECT_DIR$/cms/static/js/common/common.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/scss/login.scss" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms_build/static/js/common/common.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/components/First.vue" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/components/Second_one.vue" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/components/Second.vue" />
+    <entry file="file://$PROJECT_DIR$/cms_build/index.html" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/components/Home.vue" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/components/login.vue" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/main.js" />
+    <entry file="file://$PROJECT_DIR$/cms_build/src/router/index.js" />
+    <entry file="file://$PROJECT_DIR$/api/application/cms_api/controller/Web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Menu/form.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Menu/tree.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Menu/tree_show.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/User/login.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Index/index.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Model/datadict.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Common/404.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Common/message.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Common/nice_pageination.html" />
+    <entry file="file://$PROJECT_DIR$/admin/app/run/view/Upload/upload_result.html" />
+    <entry file="file://$PROJECT_DIR$/admin/public/editor-4.5.6/lang/af.js" />
+    <entry file="file://$PROJECT_DIR$/admin/index.html" />
+    <entry file="file://$PROJECT_DIR$/admin/index.php" />
+    <entry file="file://$PROJECT_DIR$/admin/think" />
+    <entry file="file:///private/var/folders/j1/8v56tk793xsgtzv08hy1l23r0000gn/T/fz3temp-2/passwd 2" />
+    <entry file="file:///private/var/folders/j1/8v56tk793xsgtzv08hy1l23r0000gn/T/fz3temp-2/passwd" />
+    <entry file="file:///private/var/folders/j1/8v56tk793xsgtzv08hy1l23r0000gn/T/fz3temp-2/post-commit" />
+    <entry file="file://$PROJECT_DIR$/api/application/index/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/svn">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx/wx_callback/callback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="136" column="2" lean-forward="true" selection-start-line="136" selection-start-column="2" selection-end-line="136" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/application/wx_api/controller/Web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

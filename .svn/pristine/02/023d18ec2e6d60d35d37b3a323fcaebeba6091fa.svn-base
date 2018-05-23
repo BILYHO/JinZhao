@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>管理系统</title>
+
+    <link rel="stylesheet" href="./static/amazeui/css/amazeui.css">
+
+
+    <script src="static/js/common/axios.min.js"></script>
+
+    <script src="./static/greenSock/TweenMax.min.js"></script>
+
+    <script src="static/js/common/common.js"></script>
+
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>

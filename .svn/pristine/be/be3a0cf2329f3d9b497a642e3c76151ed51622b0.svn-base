@@ -1,0 +1,71 @@
+<template>
+    <div class="login">
+
+        <div class="login_box">
+            <dl>
+                <dt>系 统 登 录</dt>
+                <dd>
+                    <span>用户名 :</span>
+                    <div>
+                        <input type="text" placeholder="请输入用户名">
+                    </div>
+                </dd>
+                <dd>
+                    <span>&nbsp;&nbsp;&nbsp;密码 :</span>
+                    <div>
+                        <input type="password" placeholder="请输入密码">
+                    </div>
+                </dd>
+                <dd>
+                    <span>验证码 :</span>
+                    <div>
+                        <input type="text" placeholder="请输入验证码">
+                    </div>
+                </dd>
+            </dl>
+            <div class="btn" @click="confirm">确认</div>
+            <span class="forget">忘记密码 ?</span>
+        </div>
+
+    </div>
+</template>
+
+
+<script>
+
+
+    export default {
+        beforeCreate: function () {
+
+        },
+        mounted: function () {
+            const loginBox = document.querySelector('.login_box');
+            TweenMax.from(loginBox, 2, {
+                transform: "translateY(-700px)",
+                repeat: 0,
+                yoyo: true,
+                ease: Elastic.easeInOut,
+                onComplete: function () {
+                }
+            });
+        },
+        data() {
+            return {}
+        },
+        methods: {
+            confirm: function () {
+                let param = {
+                    'name': 'BILYHO',
+                    'json': JSON.stringify({
+                        'name':'BILYHO2'
+                    })
+                };
+                new Axios('test', param, function (response) {
+                    console.log(response);
+                }, 'post', 2);
+            }
+        }
+    }
+</script>
+
+<style lang="scss" src="../../scss/login.scss"></style>

@@ -1,0 +1,156 @@
+/**
+ * Created by BILTHO on 2017/1/26.
+ */
+//下拉加载
+/**
+ *
+ * 第一个参数: e 是event 事件对象
+ * 第二个参数: Vue的实例容器
+ * 第三个参数: drop_loading 是点击事件函数的类名
+ * 第四个参数: code值
+ * 第五个参数: 请求的地址
+ * 第六个参数: 需要的数组名称
+ * 第七和八个参数:是原先的数组长度
+ * 第九个参数:原先的请求过来的列表
+ * 第十个参数是请求的param
+ *
+ *
+ *
+ //下拉加载样式
+ .load {
+  height: .5rem;
+  line-height: .5rem;
+  text-align: center;
+  .loading {
+    display: inline-block;
+    height: .1rem;
+    width: .1rem;
+    border-radius: 50%;
+    margin: 6px;
+    border: 2px solid #666;
+    border-bottom-color: transparent;
+    vertical-align: middle;
+    -webkit-animation: rotate 0.75s linear infinite;
+    animation: rotate 0.75s linear infinite; }}
+
+
+ <!--下拉加载-->
+ <div class="load">
+ <span class="loading"></span>
+ 加载中...
+ </div>
+ */
+
+
+
+//模板
+
+function oPullDown_sample(e, content, drop_loading, code, api, dataName, LengthMin, LengthMax, List, param) {
+    var LengthMin = LengthMin + 10;
+    var LengthMax = LengthMax + 10;
+
+    e.stopPropagation();
+    //获取滚动条现在的位置
+    var now_scrollTop = ___getScroll();
+
+
+    //获取滚动条最终的位置
+    var total_scroll = document.body.scrollHeight - document.documentElement.clientHeight;
+
+    //判断滚动条是否到底部
+    if (now_scrollTop >= total_scroll - 30) {
+
+        //先移除下拉刷新事件 防止多次请求
+        var oDocument = document;
+        oDocument.removeEventListener('touchend', drop_loading);
+        // $(document).unbind('touchend', drop_loading);
+        // //请求的页数增加
+        sessionStorage.page++;
+        console.log(param);
+        $.ajax({
+            type: 'POST',
+            url: 'http://gbmx.xuegengwang.com/api/gbmx_api/web/' + api,
+            data: sign(param),
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+                var DataName = eval(dataName);
+                console.log(DataName);
+                if (DataName.length == 0) {
+                    return $('.load').text('暂无更多数据');
+                }
+                var List2 = DataName;
+                var List3 = content.List.concat(List2);
+                content.List = List3;
+
+                // console.log(LengthMin);
+                // console.log(LengthMax);
+                // console.log(List2.length);
+                // console.log(List3.length);
+
+                //如果新闻列表的内容等于之前的长度 或者 新闻列表内容不大于之前最大长度
+
+                if (List3.length == LengthMin || List3.length < LengthMax) {
+                    $('.load').text('暂无更多数据');
+                    return;
+                }
+                setTimeout(function () {
+                    oDocument.addEventListener('touchend', drop_loading);
+                }, 500);
+            }
+        });
+    }
+}
+
+function oPullDown_Axios(e, content, drop_loading, code, api, dataName, LengthMin, LengthMax, List, param) {
+    var LengthMin = LengthMin + 10;
+    var LengthMax = LengthMax + 10;
+
+
+
+    e.stopPropagation();
+    //获取滚动条现在的位置
+    var now_scrollTop = ___getScroll();
+
+
+    //获取滚动条最终的位置
+    var total_scroll = document.body.scrollHeight - document.documentElement.clientHeight;
+
+    //判断滚动条是否到底部
+    if (now_scrollTop >= total_scroll - 30) {
+
+        //先移除下拉刷新事件 防止多次请求
+        var oDocument = document;
+        oDocument.removeEventListener('touchend', drop_loading);
+        // $(document).unbind('touchend', drop_loading);
+        // //请求的页数增加
+        sessionStorage.page++;
+
+        Axios(api, param, function (response) {
+            let load = document.querySelector('.load');
+
+            var DataName = eval(dataName);
+            console.log(DataName);
+
+            if (DataName.length == 0) {
+                load.innerText = '暂无更多数据'
+                return;
+            }
+            var List2 = DataName;
+            var List3 = content.List.concat(List2);
+            content.List = List3;
+
+            //如果新闻列表的内容等于之前的长度 或者 新闻列表内容不大于之前最大长度
+
+            if (List3.length == LengthMin || List3.length < LengthMax) {
+                load.innerText = '暂无更多数据';
+                return;
+            }
+            setTimeout(function () {
+                oDocument.addEventListener('touchend', drop_loading);
+            }, 500);
+
+        })
+    }
+}

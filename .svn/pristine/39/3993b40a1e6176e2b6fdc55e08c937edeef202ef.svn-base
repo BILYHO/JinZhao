@@ -1,0 +1,28 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '@/components/Home'
+import First from '@/components/First'
+import Second from '@/components/Second'
+import Second_one from '@/components/Second_one'
+
+Vue.use(Router);
+
+
+export default new Router({
+  routes: [
+      {
+          path: '/', component: Home
+      },
+      {
+          path: '/First', component: First
+      },
+      {
+          path: '/Second', component: Second,
+          children:[
+              {
+                  path:'/Second_one',component:Second_one
+              }
+          ]
+      }
+  ]
+})

@@ -1,0 +1,102 @@
+/**
+ * Created by BILYHO on 17/9/15.
+ */
+var KEY = "daxuewuyoulorisong";
+
+function sign(dic) {
+
+    var string = "";
+
+    dic["timestamp"] = new Date().getTime();
+
+    dic["rdStr"] = randomString();
+
+    var dicKeys = Object.keys(dic).sort();
+
+    var newdic = {};
+
+    for(var i=0;i<dicKeys.length;i++){
+        newdic[dicKeys[i]] = dic[dicKeys[i]];
+    }
+
+
+    for (var key in newdic){
+
+        string = string+key+"="+newdic[key];
+    }
+    string = string + "key="+KEY;
+
+    newdic["sign"] = md5(string);
+
+    console.log(newdic);
+
+    console.log(string);
+    return newdic;
+
+}
+
+var KEYAPP = "daxuewuyoulorisongdaxuewuyoulori";
+
+function sign_iosAn(dic) {
+
+    var string = "";
+
+    dic["timestamp"] = new Date().getTime();
+
+    dic["rdStr"] = randomString();
+
+    var dicKeys = Object.keys(dic).sort();
+
+    var newdic = {};
+
+    for(var i=0;i<dicKeys.length;i++){
+        newdic[dicKeys[i]] = dic[dicKeys[i]];
+    }
+
+
+    for (var key in newdic){
+
+        string = string+key+"="+newdic[key];
+    }
+    string = string + "key="+KEYAPP;
+
+    newdic["sign"] = md5(string).toUpperCase();
+
+    console.log(newdic);
+
+    console.log(string);
+    return newdic;
+
+}
+
+function randomString(len) {
+    len = len || 32;
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+    var maxPos = $chars.length;
+    var pwd = '';
+    for (i = 0; i < len; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return pwd;
+}
+
+function GetArgsFromHref(sHref, sArgName)
+{
+    var args    = sHref.split("?");
+    var retval = "";
+
+    if(args[0] == sHref) /*参数为空*/
+    {
+        return retval; /*无需做任何处理*/
+    }
+    var str = args[1];
+    args = str.split("&");
+    for(var i = 0; i < args.length; i ++)
+    {
+        str = args[i];
+        var arg = str.split("=");
+        if(arg.length <= 1) continue;
+        if(arg[0] == sArgName) retval = arg[1];
+    }
+    return retval;
+}

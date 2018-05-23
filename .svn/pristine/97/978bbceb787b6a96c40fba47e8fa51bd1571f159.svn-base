@@ -1,0 +1,80 @@
+<?php
+namespace app\wx_api\controller;
+
+# 引用tp默认
+use think\Controller;
+# 引用公共类
+use Common;
+use think\Request;
+
+define("SECRET", "143efc0a88848a86a37d8138e13f956c");
+define("AppID", "wx7cf9e5466edfa6ce");
+
+class Web extends Controller
+{
+    # 构造方法
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+
+
+    }
+
+    # 自定义菜单
+    public function customMenu(){
+        # POST（请使用https协议）
+
+        $accessToken = $this->getAccessToken();
+        halt(json_encode($accessToken));
+        $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" . $accessToken;
+
+        $param = [];
+    }
+
+    # 获取accessToken
+    public function getAccessToken(){
+        $common = new Common\Common();
+
+        $now = time();
+
+        # 对比数据库的token时间
+        $lastTime = db('accesstoken')->where('id',1)->value('time');
+
+        if ($now > $lastTime + 7200000){
+
+            $request = $common->getRequest('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . AppID . '&secret=' . SECRET);
+
+            db('accesstoken')->where('id',1)->update(['accessToken' => $request['access_token'] , 'time' => time()]);
+
+            $access_token = $request['access_token'];
+
+            $data = compact('access_token');
+
+            return $this->pack($data,'0','请求成功,这是新的token');
+
+
+        } else {
+
+            $access_token = db('accesstoken')->where('id',1)->value('accessToken');
+
+            $data = compact('access_token');
+            return $this->pack($data,'0','请求成功,这是未过期的token');
+
+        }
+
+    }
+
+    # return json
+    public function pack($array = null, $code = '0', $msg = '请求成功', $alert = 'N')
+    {
+
+        if (!$array) {
+            return json(['err_code' => $code, 'msg' => $msg, 'alert' => $alert]);
+        } else {
+            $array["err_code"] = $code;
+            $array["msg"] = $msg;
+            $array["alert"] = $alert;
+            return json($array);
+        }
+    }
+}

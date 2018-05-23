@@ -1,0 +1,4 @@
+.all {
+  width: 100px; }
+  .all .test {
+    width: 200px; }
